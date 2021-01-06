@@ -1,0 +1,41 @@
+{{define "title"}}A templated page{{end}}
+
+{{define "body"}}
+<form class="form-signin" action="/" method="GET">
+    <div class="text-center mb-4">
+        <img class="mb-4" src="https://cdn.iconscout.com/icon/free/png-512/random-9-431161.png" alt="" width="72"
+            height="72">
+        <h1 class="h3 mb-3 font-weight-normal">Siguiente Palabra</h1>
+        <p>
+            Este generador de palabras aleatorias es utilizado en juegos como el
+            <a href="/pictionary.html">Pictionary</a>. Por ejemplo, genera una palabra,
+            dibújala y otros deben adivinar cual es la palabra.
+        </p>
+    </div>
+
+    {{template "widget-word" .}}
+
+    <div class="form-group">
+        <label for="level"><code>Nivel:</code></label>
+        <select class="form-control" id="level" name="level">
+            <option value="easy">Facil</option>
+            <!-- <option value="hard">Dificil</option>
+            <option value="extreme">Extremo</option> -->
+        </select>
+    </div>
+
+    <div class="form-label-group">
+        <label for="time"><code>Tiempo para dibujar (en segundos):</code></label>
+        <input type="number" id="time" name="time" class="form-control" placeholder="30" value="30" required="true"
+            autocomplete="off"
+            style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAkCAYAAADo6zjiAAAAAXNSR0IArs4c6QAAAbNJREFUWAntV8FqwkAQnaymUkpChB7tKSfxWCie/Yb+gbdeCqGf0YsQ+hU95QNyDoWCF/HkqdeiIaEUqyZ1ArvodrOHxanQOiCzO28y781skKwFW3scPV1/febP69XqarNeNTB2KGs07U3Ttt/Ozp3bh/u7V7muheQf6ftLUWyYDB5yz1ijuPAub2QRDDunJsdGkAO55KYYjl0OUu1VXOzQZ64Tr+IiPXedGI79bQHdbheCIAD0dUY6gV6vB67rAvo6IxVgWVbFy71KBKkAFaEc2xPQarXA931ot9tyHphiPwpJgSbfe54Hw+EQHMfZ/msVEEURjMfjCjbFeG2dFxPo9/sVOSYzxmAwGIjnTDFRQLMQAjQ5pJAQkCQJ5HlekeERxHEsiE0xUUCzEO9AmqYQhiF0Oh2Yz+ewWCzEY6aYKKBZCAGYs1wuYTabKdNNMWWxnaA4gp3Yry5JBZRlWTXDvaozUgGTyQSyLAP0dbb3DtQlmcan0yngT2ekE9ARc+z4AvC7nauh9iouhpcGamJeX8XF8MaClwaeROWRA7nk+tUnyzGvZrKg0/40gdME/t8EvgG0/NOS6v9NHQAAAABJRU5ErkJggg==&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;">
+    </div>
+
+    <div class="mt-3">
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Siguiente palabra</button>
+    </div>
+
+    <p class="mt-5 mb-3 text-muted text-center">por <strong>Pablo Calvo</strong> © 2021</p>
+    </div>
+</form>
+{{end}}

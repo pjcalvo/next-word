@@ -1,0 +1,11 @@
+{{define "widget-word"}}
+{{if ne .Word ""}}
+<div class="jumbotron jumbotron-fluid">
+    <div id="initialTime" hidden>{{.Time}}</div>
+    <div class="container text-center">
+        <h1 class="display-5">{{.Word}}</h1>
+        <p class="lead" id="counter"><strong>...</strong></p>
+    </div>
+</div>
+{{end}}
+{{end}}
