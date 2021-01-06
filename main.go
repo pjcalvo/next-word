@@ -5,12 +5,9 @@ import (
 	"html/template"
 	"log"
 	"net/http"
+	"os"
 	"path/filepath"
 	"strconv"
-)
-
-const (
-	port = 9000
 )
 
 type config struct {
@@ -20,14 +17,18 @@ type config struct {
 }
 
 func main() {
+	var port = os.Getenv("PORT")
+	if port == "" {
+		port = "9000"
+	}
 	fs := http.FileServer(http.Dir("./static"))
 	http.Handle("/static/", http.StripPrefix("/static/", fs))
 
 	http.HandleFunc("/", serveTemplate)
 	http.HandleFunc("/pictionary.html", servePictionary)
 
-	log.Println(fmt.Sprintf("Listening on :%d...", port))
-	err := http.ListenAndServe(fmt.Sprintf(":%d", port), nil)
+	log.Println(fmt.Sprintf("Listening on :%s...", port))
+	err := http.ListenAndServe(fmt.Sprintf(":%s", port), nil)
 	if err != nil {
 		log.Fatal(err)
 	}
